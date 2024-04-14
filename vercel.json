@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "x-decodez-api",
+    "name": "x101-api",
     "builds": [
        { "src": "app.js", "use": "@vercel/node" }
     ],
