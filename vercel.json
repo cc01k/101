@@ -1,8 +1,0 @@
-{
-    "version": 2,
-    "name": "x101-api",
-    "routes": [
-       { "src": "/(.*)", "dest": "/app.js" }
-    ]
-}
-
