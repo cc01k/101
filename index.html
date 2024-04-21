@@ -12,6 +12,94 @@
 
     <style>
         /* Your CSS styles */
+        /* Make all buttons have a cool gradient background */
+        button {
+            background: linear-gradient(45deg, #ff00cc, #333399); /* Gradient background */
+            color: white; /* White text */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold; /* Bold text */
+            text-transform: uppercase; /* Uppercase text */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+        
+        button:hover {
+            background: linear-gradient(45deg, #333399, #ff00cc); /* Gradient background on hover */
+        }
+
+        body {
+            background-color: #2c3e50; /* Background color */
+            color: #ecf0f1; /* Text color */
+            font-family: Arial, sans-serif; /* Font family */
+            padding-top: 30px; /* Top padding */
+        }
+
+        .logo-container {
+            padding: 30px;
+        }
+
+        .logo {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .title {
+            font-size: 36px;
+            margin-top: 20px;
+        }
+
+        .date {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .card {
+            background-color: #34495e;
+            color: #ecf0f1;
+            border: none;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            margin-top: -100px;
+        }
+
+        .btn-clipboard {
+            margin-top: 20px;
+        }
+
+        .container {
+            margin-bottom: 90px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #34495e;
+            padding: 10px 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .telegram-button {
+            display: inline-block;
+            background-color: #0088cc;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .telegram-button:hover {
+            background-color: #005580;
+        }
     </style>
 
 </head>
@@ -48,96 +136,87 @@
 
     <footer class="text-center">
         <p>Total Visitors: <span id="visitorCount">0</span></p>
+        <a href="https://t.me/ENZ0101" class="telegram-button">Join our Telegram Channel</a>
         <p>&copy; 2024 𝖠𝗅𝗅 𝗋𝗂𝗀𝗁𝗍 𝗋𝖾𝗌𝖾𝗋𝗏𝖾𝖽 | 𝖤𝖭𝖹𝖮™</p>
     </footer>
 
-	<script>
-		function copyToClipboard(contentValue) {
-			console.log(contentValue);
-			var $temp = $("<textarea>");
-			$("body").append($temp);
-			$temp.val(`\`\`\`${contentValue}\`\`\``).select();
-			document.execCommand("copy");
-			$temp.remove();
-		}
+    <script>
+        function copyToClipboard(contentValue) {
+            console.log(contentValue);
+            var $temp = $("<textarea>");
+            $("body").append($temp);
+            $temp.val(`\`\`\`${contentValue}\`\`\``).select();
+            document.execCommand("copy");
+            $temp.remove();
+        }
 
-		$(document).ready(function () {
-			var btn = $("#btn-copy");
-			var clipboardCallback = $("#clipboard-callback");
+        $(document).ready(function () {
+            var btn = $("#btn-copy");
+            var clipboardCallback = $("#clipboard-callback");
 
-			var reqParams = new URLSearchParams(window.location.search);
-			var contentValue = $("#content-val");
-			window.history.replaceState({}, document.title, window.location.origin);
+            var reqParams = new URLSearchParams(window.location.search);
+            var contentValue = $("#content-val");
+            window.history.replaceState({}, document.title, window.location.origin);
 
-			if (reqParams.has("content")) {
-				btn.prop("disabled", false);
-				
-				try {
-					var decodedBase64Content = atob(reqParams.get("content"), "utf-8"); 
-					var decodedUnicodeContent = decodeURIComponent(escape(decodedBase64Content));
-					contentValue.text(decodedUnicodeContent);
-				} catch {
-					contentValue.text("Content is invalid or broken, please provide valid Content!");
-				}
-				
-				
+            if (reqParams.has("content")) {
+                btn.prop("disabled", false);
+                
+                try {
+                    var decodedBase64Content = atob(reqParams.get("content"), "utf-8"); 
+                    var decodedUnicodeContent = decodeURIComponent(escape(decodedBase64Content));
+                    contentValue.text(decodedUnicodeContent);
+                } catch {
+                    contentValue.text("Content is invalid or broken, please provide valid Content!");
+                }
+                
 
-				btn.on("click", function () {
-					copyToClipboard(decodedUnicodeContent);
-					clipboardCallback.text("Key copied to clipboard!");
+                btn.on("click", function () {
+                    copyToClipboard(decodedUnicodeContent);
+                    clipboardCallback.text("Key copied to clipboard!");
 
-					setTimeout(function () {
-						clipboardCallback.text("");
-					}, 2000);
-				});
-			}
+                    setTimeout(function () {
+                        clipboardCallback.text("");
+                    }, 2000);
+                });
+            }
 
-			// Fungsi untuk mendapatkan tanggal saat ini
-			function getCurrentDate() {
-				var now = new Date();
-				var date = now.getDate();
-				var month = now.getMonth() + 1; // Bulan dimulai dari 0
-				var year = now.getFullYear();
+            function getCurrentDate() {
+                var now = new Date();
+                var date = now.getDate();
+                var month = now.getMonth() + 1;
+                var year = now.getFullYear();
 
-				// Tambahkan nol di depan angka tunggal
-				if (date < 10) {
-					date = "0" + date;
-				}
-				if (month < 10) {
-					month = "0" + month;
-				}
+                if (date < 10) {
+                    date = "0" + date;
+                }
+                if (month < 10) {
+                    month = "0" + month;
+                }
 
-				// Format tanggal dalam bentuk DD/MM/YYYY
-				return date + "/" + month + "/" + year;
-			}
+                return date + "/" + month + "/" + year;
+            }
 
-			// Perbarui teks tanggal saat ini
-			$("#current-date").text("Current Date: " + getCurrentDate());
-		});
-		    </script>
-		    <script>
-        // Simpan jumlah pengunjung di localStorage
+            $("#current-date").text("Current Date: " + getCurrentDate());
+        });
+
         if (!localStorage.getItem('visitorCount')) {
             localStorage.setItem('visitorCount', 0);
         }
 
-        // Ambil jumlah pengunjung dari localStorage dan tampilkan
         var visitorCount = localStorage.getItem('visitorCount');
         document.getElementById('visitorCount').textContent = visitorCount;
 
-        // Fungsi untuk menambah jumlah pengunjung dan menyimpannya di localStorage
         function incrementVisitorCount() {
             visitorCount++;
             localStorage.setItem('visitorCount', visitorCount);
             document.getElementById('visitorCount').textContent = visitorCount;
         }
 
-        // Panggil fungsi incrementVisitorCount() setiap kali halaman dimuat
         window.onload = function () {
             incrementVisitorCount();
         };
 
-	</script>
+    </script>
 
 </body>
 
