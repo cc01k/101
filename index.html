@@ -18,7 +18,7 @@
 			/* Warna teks */
 			font-family: Arial, sans-serif;
 			/* Jenis font */
-			padding-top: 50px;
+			padding-top: 30px;
 			/* Ruang di atas konten */
 		}
 
@@ -124,7 +124,9 @@
 				<div class="col-12 text-center">
 					<div class="logo-container">
 						<img src="https://i.postimg.cc/0MSj8Rwz/logo.png" alt="X-DECODEZ" class="logo">
+						
 						<h1 class="title">X-DECODEZ</h1>
+			           <p>Total Visitors: <span id="visitorCount">0</span></p>
 						<p class="date" id="current-date"></p>
 					</div>
 				</div>
@@ -213,8 +215,31 @@
 			// Perbarui teks tanggal saat ini
 			$("#current-date").text("Current Date: " + getCurrentDate());
 		});
+		    </script>
+		    <script>
+        // Simpan jumlah pengunjung di localStorage
+        if (!localStorage.getItem('visitorCount')) {
+            localStorage.setItem('visitorCount', 0);
+        }
+
+        // Ambil jumlah pengunjung dari localStorage dan tampilkan
+        var visitorCount = localStorage.getItem('visitorCount');
+        document.getElementById('visitorCount').textContent = visitorCount;
+
+        // Fungsi untuk menambah jumlah pengunjung dan menyimpannya di localStorage
+        function incrementVisitorCount() {
+            visitorCount++;
+            localStorage.setItem('visitorCount', visitorCount);
+            document.getElementById('visitorCount').textContent = visitorCount;
+        }
+
+        // Panggil fungsi incrementVisitorCount() setiap kali halaman dimuat
+        window.onload = function () {
+            incrementVisitorCount();
+        };
+
 	</script>
 
 </body>
 
-    </html>
+</html>
