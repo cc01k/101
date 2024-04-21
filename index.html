@@ -2,155 +2,54 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>X-DECODEZ</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>X-DECODEZ</title>
 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-	<style>
-		body {
-			background-color: #2c3e50;
-			/* Warna latar belakang */
-			color: #ecf0f1;
-			/* Warna teks */
-			font-family: Arial, sans-serif;
-			/* Jenis font */
-			padding-top: 30px;
-			/* Ruang di atas konten */
-		}
-
-		.logo-container {
-			padding: 30px;
-		}
-
-		.logo {
-			width: 100px;
-			border-radius: 50%;
-		}
-
-		.title {
-			font-size: 36px;
-			margin-top: 20px;
-			/* Ruang di atas judul */
-		}
-
-		.date {
-			font-size: 18px;
-			margin-top: 10px;
-			/* Ruang di atas tanggal */
-		}
-
-		.card {
-			background-color: #34495e;
-			/* Warna latar belakang card */
-			color: #ecf0f1;
-			/* Warna teks card */
-			border: none;
-			/* Hapus garis tepi card */
-			border-radius: 15px;
-			/* Bentuk sudut card */
-			padding: 30px;
-			/* Padding dalam card */
-			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-			/* Efek bayangan card */
-			margin-top: -100px;
-			/* Jarak vertikal dari atas */
-		}
-
-		.btn-clipboard {
-			background-color: #3498db;
-			/* Warna latar belakang tombol */
-			border: none;
-			/* Hapus garis tepi tombol */
-			color: #ecf0f1;
-			/* Warna teks tombol */
-			padding: 10px 20px;
-			/* Ukuran padding tombol */
-			font-size: 18px;
-			/* Ukuran font tombol */
-			border-radius: 5px;
-			/* Bentuk sudut tombol */
-			transition: background-color 0.3s;
-			/* Efek transisi saat dihover */
-			margin-top: 100px;
-			/* Ruang di atas tombol */
-			cursor: pointer;
-			/* Ubah kursor saat mengarah ke tombol */
-		}
-
-		.btn-clipboard:hover {
-			background-color: #2980b9;
-			/* Warna latar belakang tombol saat dihover */
-		}
-
-		.btn-clipboard:disabled {
-			background-color: #bdc3c7;
-			/* Warna latar belakang tombol saat tidak dapat diklik */
-			cursor: not-allowed;
-			/* Ubah kursor saat tidak dapat diklik */
-		}
-
-		.container {
-			margin-bottom: 90px;
-			/* Ruang di bawah konten */
-		}
-
-		footer {
-			position: fixed;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			background-color: #34495e;
-			/* Warna latar belakang footer */
-			padding: 10px 0;
-		}
-
-		footer p {
-			margin: 0;
-			font-size: 14px;
-		}
-	</style>
+    <style>
+        /* Your CSS styles */
+    </style>
 
 </head>
 
 <body>
 
-	<header>
-		<div class="container">
-			<div class="row justify-content-center align-items-center">
-				<div class="col-12 text-center">
-					<div class="logo-container">
-						<img src="https://i.postimg.cc/0MSj8Rwz/logo.png" alt="X-DECODEZ" class="logo">
-						
-						<h1 class="title">X-DECODEZ</h1>			           
-						<p class="date" id="current-date"></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+    <header>
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 text-center">
+                    <div class="logo-container">
+                        <img src="https://i.postimg.cc/0MSj8Rwz/logo.png" alt="X-DECODEZ" class="logo">
+                        <h1 class="title">X-DECODEZ</h1>
+                        <p class="date" id="current-date"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-	<div class="container">
-		<div class="row justify-content-center align-items-center">
-			<div class="col-md-6">
-				<div class="card">
-					<pre id="content-val" class="fw-bold fs-10 font-monospace" style="white-space: pre-line; overflow: auto;">
-						No Content
-					</pre>
-					<button type="button" id="btn-copy" class="btn btn-clipboard" disabled>Copy To Clipboard</button>
-					<p id="clipboard-callback" class="fw-bold fs-6 font-monospace mt-3"></p>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <pre id="content-val" class="fw-bold fs-10 font-monospace" style="white-space: pre-line; overflow: auto;">
+                        No Content
+                    </pre>
+                    <button type="button" id="btn-copy" class="btn btn-clipboard" disabled>Copy To Clipboard</button>
+                    <p id="clipboard-callback" class="fw-bold fs-6 font-monospace mt-3"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<footer class="text-center">
-     	<p>Total Visitors: <span id="visitorCount">0</span></p>
-		<p>&copy; 2024 𝖠𝗅𝗅 𝗋𝗂𝗀𝗁𝗍 𝗋𝖾𝗌𝖾𝗋𝗏𝖾𝖽 | 𝖤𝖭𝖹𝖮™</p>
-	</footer>
+    <footer class="text-center">
+        <p>Total Visitors: <span id="visitorCount">0</span></p>
+        <p>&copy; 2024 𝖠𝗅𝗅 𝗋𝗂𝗀𝗁𝗍 𝗋𝖾𝗌𝖾𝗋𝗏𝖾𝖽 | 𝖤𝖭𝖹𝖮™</p>
+    </footer>
 
 	<script>
 		function copyToClipboard(contentValue) {
