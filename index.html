@@ -1,43 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>X-DECODEZ</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        /* Your CSS styles */
-        /* Make all buttons have a cool gradient background */
-        button {
-            background: linear-gradient(45deg, #ff00cc, #333399); /* Gradient background */
-            color: white; /* White text */
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: bold; /* Bold text */
-            text-transform: uppercase; /* Uppercase text */
-            transition: all 0.3s ease; /* Smooth transition */
-        }
-        
-        button:hover {
-            background: linear-gradient(45deg, #333399, #ff00cc); /* Gradient background on hover */
-        }
-
         body {
-            background-color: #2c3e50; /* Background color */
-            color: #ecf0f1; /* Text color */
-            font-family: Arial, sans-serif; /* Font family */
-            padding-top: 30px; /* Top padding */
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            position: relative;
         }
 
-        .logo-container {
-            padding: 30px;
+        header {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
         }
 
         .logo {
@@ -46,178 +28,216 @@
         }
 
         .title {
-            font-size: 36px;
-            margin-top: 20px;
-        }
-
-        .date {
-            font-size: 18px;
+            font-size: 27px;
             margin-top: 10px;
         }
 
+        .version {
+            font-size: 14px;
+            color: #777;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
         .card {
-            background-color: #34495e;
-            color: #ecf0f1;
-            border: none;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-            margin-top: -100px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .btn-clipboard {
-            margin-top: 20px;
+            background: linear-gradient(45deg, #0088cc, #005299);
+            border: none;
+            color: #fff;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .container {
-            margin-bottom: 90px;
+        .btn-clipboard:hover {
+            background: linear-gradient(45deg, #005299, #0088cc);
         }
 
         footer {
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            padding: 10px 0;
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #34495e;
-            padding: 10px 0;
         }
 
-        footer p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .telegram-button {
-            display: inline-block;
-            background-color: #0088cc;
-            color: white;
-            padding: 10px 20px;
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
             border-radius: 5px;
-            text-decoration: none;
-            margin-top: 20px;
+            border: 2px solid #0088cc;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
         }
 
-        .telegram-button:hover {
-            background-color: #005580;
+        .toast.show {
+            opacity: 1;
+        }
+
+        .toast-body {
+            padding: 10px 20px;
+        }
+
+        #content-val {
+            border: 2px solid #0088cc;
+        }
+
+        #date {
+            font-weight: bold;
+        }
+
+        .telegram-icon {
+            position: fixed;
+            bottom: 18px;
+            right: 18px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 20px;
+            }
+
+            .version {
+                top: 10px;
+                left: 10px;
+                font-size: 12px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            .card {
+                margin-bottom: 10px;
+            }
+
+            .btn-clipboard {
+                padding: 17px 16px;
+                font-size: 16px;
+            }
         }
     </style>
-
 </head>
-
 <body>
+<header>
+    <img src="https://i.postimg.cc/0MSj8Rwz/logo.png" alt="X-DECODEZ" class="logo">
+    <h1 class="title">X-DECODEZ</h1>
+    <p class="version">V-321</p>
+</header>
 
-    <header>
-        <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-12 text-center">
-                    <div class="logo-container">
-                        <img src="https://i.postimg.cc/0MSj8Rwz/logo.png" alt="X-DECODEZ" class="logo">
-                        <h1 class="title">X-DECODEZ</h1>
-                        <p class="date" id="current-date"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
+<main>
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6">
                 <div class="card">
-                    <pre id="content-val" class="fw-bold fs-10 font-monospace" style="white-space: pre-line; overflow: auto;">
-                        No Content
-                    </pre>
+                    <textarea id="content-val" class="fw-bold fs-10 font-monospace" style="width: 100%; height: 200px;" readonly>No Content</textarea>
                     <button type="button" id="btn-copy" class="btn btn-clipboard" disabled>Copy To Clipboard</button>
                     <p id="clipboard-callback" class="fw-bold fs-6 font-monospace mt-3"></p>
                 </div>
             </div>
         </div>
     </div>
+</main>
 
-    <footer class="text-center">
-        <p>Total Visitors: <span id="visitorCount">0</span></p>
-        <a href="https://t.me/ENZ0101" class="telegram-button">Join our Telegram Channel</a>
-        <p>&copy; 2024 𝖠𝗅𝗅 𝗋𝗂𝗀𝗁𝗍 𝗋𝖾𝗌𝖾𝗋𝗏𝖾𝖽 | 𝖤𝖭𝖹𝖮™</p>
-    </footer>
+<footer>
+    <p>Total Visitors: <span id="visitorCount">0</span> | Date: <span id="date"></span></p>
+    <p>&copy; 2024 All rights reserved | ENZO™</p>
+</footer>
 
-    <script>
-        function copyToClipboard(contentValue) {
-            console.log(contentValue);
-            var $temp = $("<textarea>");
-            $("body").append($temp);
-            $temp.val(`\`\`\`${contentValue}\`\`\``).select();
-            document.execCommand("copy");
-            $temp.remove();
-        }
+<div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body">
+        Result copied to clipboard!
+    </div>
+</div>
 
-        $(document).ready(function () {
-            var btn = $("#btn-copy");
-            var clipboardCallback = $("#clipboard-callback");
+<a href="https://t.me/ENZ0101" target="_blank" class="telegram-icon">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="50" height="50">
+</a>
 
-            var reqParams = new URLSearchParams(window.location.search);
-            var contentValue = $("#content-val");
-            window.history.replaceState({}, document.title, window.location.origin);
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    function copyToClipboard(contentValue) {
+        console.log(contentValue);
+        var $temp = $("<textarea>");
+        $("body").append($temp);
+        $temp.val(`\`\`\`${contentValue}\`\`\``).select();
+        document.execCommand("copy");
+        $temp.remove();
 
-            if (reqParams.has("content")) {
-                btn.prop("disabled", false);
-                
-                try {
-                    var decodedBase64Content = atob(reqParams.get("content"), "utf-8"); 
-                    var decodedUnicodeContent = decodeURIComponent(escape(decodedBase64Content));
-                    contentValue.text(decodedUnicodeContent);
-                } catch {
-                    contentValue.text("Content is invalid or broken, please provide valid Content!");
-                }
-                
+        var toast = document.getElementById("toast");
+        toast.innerText = "Result copied to clipboard!";
+        toast.classList.add("show");
+        setTimeout(function () {
+            toast.classList.remove("show");
+        }, 2000);
+    }
 
-                btn.on("click", function () {
-                    copyToClipboard(decodedUnicodeContent);
-                    clipboardCallback.text("Key copied to clipboard!");
+    $(document).ready(function () {
+        var btn = $("#btn-copy");
+        var clipboardCallback = $("#clipboard-callback");
 
-                    setTimeout(function () {
-                        clipboardCallback.text("");
-                    }, 2000);
-                });
+        var reqParams = new URLSearchParams(window.location.search);
+        var contentValue = $("#content-val");
+
+        if (reqParams.has("content")) {
+            btn.prop("disabled", false);
+
+            try {
+                var decodedBase64Content = atob(reqParams.get("content"), "utf-8");
+                var decodedUnicodeContent = decodeURIComponent(escape(decodedBase64Content));
+                contentValue.text(decodedUnicodeContent);
+            } catch {
+                contentValue.text("Content is invalid or broken, please provide valid Content!");
             }
 
-            function getCurrentDate() {
-                var now = new Date();
-                var date = now.getDate();
-                var month = now.getMonth() + 1;
-                var year = now.getFullYear();
-
-                if (date < 10) {
-                    date = "0" + date;
-                }
-                if (month < 10) {
-                    month = "0" + month;
-                }
-
-                return date + "/" + month + "/" + year;
-            }
-
-            $("#current-date").text("Current Date: " + getCurrentDate());
-        });
-
-        if (!localStorage.getItem('visitorCount')) {
-            localStorage.setItem('visitorCount', 0);
+            btn.on("click", function () {
+                copyToClipboard(decodedUnicodeContent);
+            });
         }
+    });
 
-        var visitorCount = localStorage.getItem('visitorCount');
+    if (!localStorage.getItem('visitorCount')) {
+        localStorage.setItem('visitorCount', 0);
+    }
+
+    var visitorCount = localStorage.getItem('visitorCount');
+    document.getElementById('visitorCount').textContent = visitorCount;
+
+    function incrementVisitorCount() {
+        visitorCount++;
+        localStorage.setItem('visitorCount', visitorCount);
         document.getElementById('visitorCount').textContent = visitorCount;
+    }
 
-        function incrementVisitorCount() {
-            visitorCount++;
-            localStorage.setItem('visitorCount', visitorCount);
-            document.getElementById('visitorCount').textContent = visitorCount;
-        }
-
-        window.onload = function () {
-            incrementVisitorCount();
-        };
-
-    </script>
-
+    window.onload = function () {
+        incrementVisitorCount();
+        var currentDate = new Date();
+        document.getElementById('date').textContent = currentDate.toLocaleDateString('en-US');
+    };
+</script>
 </body>
-
 </html>
