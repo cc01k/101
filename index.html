@@ -156,15 +156,16 @@
                 <div class="card">
                     <textarea id="content-val" class="fw-bold fs-10 font-monospace" style="width: 100%; height: 401px;" readonly>No Content</textarea>
                     <button type="button" id="btn-copy" class="btn btn-clipboard" disabled>Copy To Clipboard</button>
-                    <!-- <p id="clipboard-callback" class="fw-bold fs-6 font-monospace mt-3"></p> -->
                 </div>
             </div>
         </div>
+        <div style="text-align: center;">
+     
     </div>
 </main>
 
-<footer>
-    <p>Total Visitors: <span id="visitorCount">0</span> | Date: <span id="date"></span></p>
+<footer>  
+   <p>Total Visitors: <span id="sfc81kmsrclgg8zxfawuafujluge74t8uyj"></span> | Date: <span id="date"></span></p> 
     <p>&copy; 2024 All rights reserved | ENZO™</p>
 </footer>
 
@@ -225,19 +226,18 @@
     }
 
     var visitorCount = localStorage.getItem('visitorCount');
-    document.getElementById('visitorCount').textContent = visitorCount;
+    document.getElementById('sfc81kmsrclgg8zxfawuafujluge74t8uyj').textContent = visitorCount;
 
     function incrementVisitorCount() {
         visitorCount++;
         localStorage.setItem('visitorCount', visitorCount);
-        document.getElementById('visitorCount').textContent = visitorCount;
+        document.getElementById('sfc81kmsrclgg8zxfawuafujluge74t8uyj').textContent = visitorCount;
     }
 
-    window.onload = function () {
-        incrementVisitorCount();
-        var currentDate = new Date();
-        document.getElementById('date').textContent = currentDate.toLocaleDateString('en-US');
-    };
+    incrementVisitorCount();
+    var currentDate = new Date();
+    document.getElementById('date').textContent = currentDate.toLocaleDateString('en-US');
 </script>
+<script type="text/javascript" src="https://counter11.optistats.ovh/private/counter.js?c=81kmsrclgg8zxfawuafujluge74t8uyj&down=async" async></script>
 </body>
 </html>
